@@ -1,35 +1,44 @@
 // Elements
+const $menuContainer = document.getElementById('menu-container');
 const $cartImg = document.getElementById('cart');
 const $cartContent = document.getElementById('cart-content');
 const $cartProducts = document.getElementById('cart-products');
 const $cartSum = document.getElementById('cart-sum');
 
 
+setMenuView();
 
-// Configura os eventos que exibem e escondem o conteúdo do carrinho
+
+
+// Faz o request e exibe o conteúdo do carrinho
+// esconde o carrinho se já estiver sendo exibido
 $cartImg.addEventListener('click', async event => {
     event.stopPropagation();
     if(toggleCartView()){
         // TODO exibir animação de loading
         const cartData = await requestCartData();
         setCartView(cartData);
-        // Não é uma boa solução fazer um request sempre que usuário quiser ver o carrinho
-        // Aqui foi aberto uma exceção para que haja uma maneira de testar o request
     }
 });
 
+// Clicar na página (fora do carrinho), esconde o conteúdo
+// do carrinho
+document.addEventListener('click', event => {
+    toggleCartView(true);
+});
+
+// Evita que um clique no conteúdo do carrinho seja entendido
+// como um clique na página
 $cartContent.addEventListener('click', event => {
     event.stopPropagation();
 });
 
-document.addEventListener('click', event => {
-    toggleCartView(true);
-});
-//-------------------------------------------------------------------
+
+
 
 
 // Alterna a visibilidade do conteúdo do carrinho ou apenas esconde se 'flag' for true
-// Retorna o estado do carrinho após a chamada: true => Visível | false => escondido
+// Retorna o estado do carrinho após a chamada: true => visível | false => escondido
 function toggleCartView(flag?: boolean){
     if(flag){
         $cartContent.style.display = 'none';
@@ -48,21 +57,33 @@ function toggleCartView(flag?: boolean){
 }
 
 // Faz uma requisição e retorna o conteúdo do carrinho
-async function requestCartData(){
+async function requestCartData(): Promise<any>{
     return new Promise(async resolve => {
         const data = await fetch("data/products.json");
         resolve(await data.json());
     });
 }
 
+// Faz uma requisição e retorna o conteúdo do menu
+async function requestMenuData(): Promise<any> {
+    return new Promise(async resolve => {
+        const data = await fetch("data/menu.json");
+        resolve(await data.json());
+    });
+}
+
+
+
+
+
 // Cria um elemento com as classes especificadas
-function createElement(tagName, classArray): Element {
+function createElement(tagName, classArray=[]): Element {
     const $element = document.createElement(tagName);
     $element.classList.add(...classArray);
     return $element;
 }
 
-// Cria um produto e insere as informações
+// Cria um produto
 function createProductElement({name, bestPriceFormated, quantity, image}){
     const $product       = createElement('div', ['product']);
     const $productImg    = createElement('img', ['product-img']);
@@ -83,7 +104,7 @@ function createProductElement({name, bestPriceFormated, quantity, image}){
     return $product;
 }
 
-// Injeta as informações dos produtos
+// Injeta as informações dos produtos na view
 function setCartView(cartData){
     $cartProducts.innerHTML = '';
     let sum = 0;
@@ -96,3 +117,41 @@ function setCartView(cartData){
     $cartSum.innerText = `R$ ${(sum/100).toLocaleString('pt-br')}`;
 }
 
+
+
+
+
+
+
+
+
+
+// Cria um link (<a>) 
+function createLinkElement(text:string, url:string): Element{
+    const $element = createElement('a');
+    $element.append(text);
+    $element.setAttribute('href', url);
+    return $element;
+}
+
+// Cria um item do menu
+function createMenuItemElement({name, url, children}): Element{
+
+    const $menuItem = createElement('li');
+    $menuItem.appendChild(createLinkElement(name, url));
+    // TODO Adicionar filhos (recursão)
+
+    return $menuItem;
+}
+
+// Injeta as informações no menu
+async function setMenuView(){
+    const $menu = createElement('ul');
+
+    const {menu} = await requestMenuData();
+    menu.forEach(menuItem => {
+        $menu.appendChild(createMenuItemElement(menuItem));
+    });
+
+    $menuContainer.appendChild($menu);
+}

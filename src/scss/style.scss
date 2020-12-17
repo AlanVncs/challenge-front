@@ -7,11 +7,6 @@ body {
     color: #1f1f1f;
 }
 
-.btn:hover {
-    cursor: pointer;
-    transform: scale(1.2);
-}
-
 @mixin noselect {
     -webkit-touch-callout: none;
       -webkit-user-select: none;
@@ -41,7 +36,7 @@ body {
             
         }
         
-        & nav{
+        & nav {
             position: relative;
             top: -19px;
             left: 21px;
@@ -53,13 +48,17 @@ body {
                 & li{
                     display: inline-block;
                     margin-right: 1.77em;
+                    & a {
+                        text-decoration: none;
+                        color: #1f1f1f;
+                    }
                 }
             }
         }
 
         & #header-btns {
             position: relative;
-            left: 135px;
+            right: -306px;
             bottom: 7px;
             display: inline-block;
 
