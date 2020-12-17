@@ -27,23 +27,52 @@ Com o projeto baixado, será possível executá-lo de duas formas:
 ```
 npm start
 ```
-Compila o projeto e cria um servidor http que escutará requisições na porta `1337`
+Compila o projeto e inicia um servidor HTTP.
+A página fica disponível em `http://127.0.0.1:1337`
 <hr>
 
 #### Modo dev (BrowserSync)
 ```
 npm run dev
 ```
-Faz o mesmo que o modo de produção, porém sempre que um arquivo é atualizado (salvo) no diretório `src`, o projeto é recompilado e a página aberta no navegador é atualizada, agilizando o desenvolvimento.
+Similar ao modo de produção, porém sempre que um arquivo é atualizado (salvo) no diretório `src/`, o projeto é recompilado e a página aberta no navegador é atualizada, agilizando o desenvolvimento.
 <hr>
 
-##### Observações
-- Em ambos os modos, a página ficará acessível através da URL `http://127.0.0.1:1337`
-- Com o comando `npm build`, é possível apenas gerar os arquivos sem iniciar um servidor http
+Obs.: Com o comando `npm build`, é possível apenas gerar os arquivos no diretório `dist/` sem iniciar um servidor HTTP
 
  ## Funcionalidades
-
+ ...
+ 
  ## Detalhes implementação
  
- 
+### Tecnologias utilizadas
 
+##### Gulp
+O Gulp foi usado para gerenciar o fluxo de trabalho, possibilitando a transpilação de código através de plugins (`gulp-sass` e `gulp-typescript`), detecção automática de mudanças no código (`gulp.watch`) e geração do diretório com os arquivos compilados (`dist/`).
+<br>
+
+##### Sass e Typescript
+Para facilitar o desenvolvimento, o CSS e o Javascript do projeto foram implementados, respectivamente, em Sass e Typescript.
+<br>
+
+##### BrowserSync
+O BrowserSync foi usado como servidor HTTP no modo de de desenvolvimento devido à sua funcionalidade de atualizar a página via código (`browsersync.reload` é chamada pelo Gulp quando alguma mudança de código é detectada). Isso agiliza muito o desenvolvimento, pois dispensa o desenvolvedor da tarefa de atualizar a página para ver as mudanças.
+<br>
+
+##### Express
+Além da sua facilidade de uso, o Express, diferente do BrowserSync, é um servidor HTTP puro e por isso é mais adequado para ser usado no modo de produção.
+<br>
+
+### Fluxo de trabalho
+
+##### Modo de desenvolvimento
+> ```npm run dev```
+
+O Gulp executa a task `default`, que inicia o BrowserSync, compila e move os arquivos para o diretório `dist/`, além de entrar no modo "watch", que recompila o projeto e avisa o BrowserSync sempre alguma alteração for detectada.
+<br>
+
+##### Modo de produção
+> ```npm start```
+
+O Gulp executa a task `build`,  compila e move os arquivos para o diretório `dist/`.  Após isso, o Express é executado através do script `index.js`.
+<br>
