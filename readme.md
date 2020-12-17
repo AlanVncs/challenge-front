@@ -28,8 +28,9 @@ Com o projeto baixado, será possível executá-lo de duas formas:
 
 Compila o projeto e inicia um servidor HTTP. A página fica disponível em `http://127.0.0.1:1337`.
 <br>
+<br>
 
-#### Modo dev (BrowserSync)
+#### Modo de desenvolvimento (BrowserSync)
 > `npm run dev`
 
 Similar ao modo de produção, porém sempre que um arquivo é atualizado (salvo) no diretório `src/`, o projeto é recompilado e a página aberta no navegador é atualizada, agilizando o desenvolvimento.
