@@ -11,7 +11,7 @@ Embora a implementação do projeto conte com tecnologias como Gulp, Sass e Type
 - Algum gerenciador de pacotes como NPM ou YARN
 
 ## Como executar
-Antes de executar, é necessário baixar o projeto e instalar suas dependências
+Antes de executar, é necessário baixar o projeto e instalar suas dependências:
 ```
 git clone https://github.com/AlanVncs/challenge-front.git
 cd challenge-front
@@ -20,25 +20,22 @@ npm install -y
 
 Com o projeto baixado, será possível executá-lo de duas formas:
 - Modo de produção (Express)
-- Modo dev (BrowserSync)
-<hr>
+- Modo de desenvolvimento (BrowserSync)
+<br>
 
 #### Modo de produção (Express)
-```
-npm start
-```
-Compila o projeto e inicia um servidor HTTP.
-A página fica disponível em `http://127.0.0.1:1337`
-<hr>
+> `npm start`
+
+Compila o projeto e inicia um servidor HTTP. A página fica disponível em `http://127.0.0.1:1337`.
+<br>
 
 #### Modo dev (BrowserSync)
-```
-npm run dev
-```
-Similar ao modo de produção, porém sempre que um arquivo é atualizado (salvo) no diretório `src/`, o projeto é recompilado e a página aberta no navegador é atualizada, agilizando o desenvolvimento.
-<hr>
+> `npm run dev`
 
-Obs.: Com o comando `npm build`, é possível apenas gerar os arquivos no diretório `dist/` sem iniciar um servidor HTTP
+Similar ao modo de produção, porém sempre que um arquivo é atualizado (salvo) no diretório `src/`, o projeto é recompilado e a página aberta no navegador é atualizada, agilizando o desenvolvimento.
+<br>
+
+Obs.: Com o comando `npm build`, é possível apenas gerar os arquivos no diretório `dist/` sem iniciar um servidor HTTP.
 
  ## Funcionalidades
  ...
