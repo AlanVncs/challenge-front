@@ -1,3 +1,10 @@
+// Interfaces
+interface MenuItem {name:string, url:string, children:Array<MenuItem>};
+interface Product {productId:number, name:string, salesChannel:number, available: boolean, bestPriceFormated:string, bestPrice:number, quantity:number, image:string};
+interface Items {item: Array<Product>};
+interface Cart {cart: Items};
+
+
 // Elements
 const $menuContainer = document.getElementById('menu-container');
 const $cartImg = document.getElementById('cart');
@@ -16,8 +23,8 @@ $cartImg.addEventListener('click', async event => {
     event.stopPropagation();
     if(toggleCartView()){
         // TODO exibir animação de loading
-        const cartData = await requestCartData();
-        setCartView(cartData);
+        const cart = await requestCartData();
+        setCartView(cart);
     }
 });
 
@@ -57,7 +64,7 @@ function toggleCartView(flag?: boolean){
 }
 
 // Faz uma requisição e retorna o conteúdo do carrinho
-async function requestCartData(): Promise<any>{
+async function requestCartData(): Promise<Cart>{
     return new Promise(async resolve => {
         const data = await fetch("data/products.json");
         resolve(await data.json());
@@ -65,7 +72,7 @@ async function requestCartData(): Promise<any>{
 }
 
 // Faz uma requisição e retorna o conteúdo do menu
-async function requestMenuData(): Promise<any> {
+async function requestMenuData(): Promise<Array<MenuItem>> {
     return new Promise(async resolve => {
         const data = await fetch("data/menu.json");
         resolve(await data.json());
@@ -77,14 +84,14 @@ async function requestMenuData(): Promise<any> {
 
 
 // Cria um elemento com as classes especificadas
-function createElement(tagName, classArray=[]): Element {
+function createElement(tagName, classArray?): Element {
     const $element = document.createElement(tagName);
-    $element.classList.add(...classArray);
+    if(classArray) $element.classList.add(...classArray);
     return $element;
 }
 
 // Cria um produto
-function createProductElement({name, bestPriceFormated, quantity, image}){
+function createProductElement(product: Product): Element{
     const $product       = createElement('div', ['product']);
     const $productImg    = createElement('img', ['product-img']);
     const $productInfo   = createElement('div', ['product-info']);
@@ -93,10 +100,10 @@ function createProductElement({name, bestPriceFormated, quantity, image}){
     const $productQtd    = createElement('div', ['product-qtd']);
     const $productPrice  = createElement('div', ['product-price']);
 
-    $productImg.setAttribute('src', image);
-    $productName.append(name);
-    $productQtd.append(`Qtd.: ${quantity}`);
-    $productPrice.append(bestPriceFormated);
+    $productImg.setAttribute('src', product.image);
+    $productName.append(product.name);
+    $productQtd.append(`Qtd.: ${product.quantity}`);
+    $productPrice.append(product.bestPriceFormated);
     $productStatus.append($productQtd, $productPrice);
     $productInfo.append($productName, $productStatus);
     $product.append($productImg, $productInfo);
@@ -105,10 +112,10 @@ function createProductElement({name, bestPriceFormated, quantity, image}){
 }
 
 // Injeta as informações dos produtos na view
-function setCartView(cartData){
+function setCartView({cart}: Cart){
     $cartProducts.innerHTML = '';
     let sum = 0;
-    cartData.cart.item.forEach(product => {
+    cart.item.forEach(product => {
         const $product = createProductElement(product);
         $cartProducts.appendChild($product);
         $cartProducts.appendChild(createElement('div', ['hr-line'])); // Linha entre os produtos
@@ -127,31 +134,35 @@ function setCartView(cartData){
 
 
 // Cria um link (<a>) 
-function createLinkElement(text:string, url:string): Element{
+function createLinkElement(menuItem: MenuItem): Element {
     const $element = createElement('a');
-    $element.append(text);
-    $element.setAttribute('href', url);
+    $element.append(menuItem.name);
+    $element.setAttribute('href', menuItem.url);
     return $element;
 }
 
 // Cria um item do menu
-function createMenuItemElement({name, url, children}): Element{
-
+function createMenuItemElement(menuItem: MenuItem): Element {
     const $menuItem = createElement('li');
-    $menuItem.appendChild(createLinkElement(name, url));
-    // TODO Adicionar filhos (recursão)
-
+    $menuItem.appendChild(createLinkElement(menuItem));
+    if(menuItem.children && (menuItem.children.length != 0)){
+        const $subMenu = createMenuElement(menuItem.children);
+        $menuItem.appendChild($subMenu);
+    }
     return $menuItem;
+}
+
+function createMenuElement(menu: Array<MenuItem>): Element {
+    const $menu = createElement('ul');
+    menu.forEach(menuItem => {
+        $menu.appendChild(createMenuItemElement(menuItem));
+    });
+    return $menu;
 }
 
 // Injeta as informações no menu
 async function setMenuView(){
-    const $menu = createElement('ul');
-
-    const {menu} = await requestMenuData();
-    menu.forEach(menuItem => {
-        $menu.appendChild(createMenuItemElement(menuItem));
-    });
-
+    const menu = await requestMenuData();
+    const $menu = createMenuElement(menu);
     $menuContainer.appendChild($menu);
 }
