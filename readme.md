@@ -1,3 +1,4 @@
+
 ![Eplus](https://www.agenciaeplus.com.br/wp-content/themes/eplus/images/agencia-eplus-n-logo.png)
 
 # E-Plus Frontend Challenge
@@ -20,24 +21,29 @@ npm install -y
 Com o projeto baixado, será possível executá-lo de duas formas:
 - Modo de produção (Express)
 - Modo dev (BrowserSync)
+<hr>
 
 #### Modo de produção (Express)
 ```
 npm start
 ```
-Neste modo, será criado um servidor http que escutará requisições na porta `1337`
+Compila o projeto e cria um servidor http que escutará requisições na porta `1337`
+<hr>
 
 #### Modo dev (BrowserSync)
 ```
 npm run dev
 ```
-Neste modo, sempre que um arquivo é atualizado (salvo) no diretório `src`, a página aberta no navegador é atualizada, agilizando o desenvolvimento.
+Faz o mesmo que o modo de produção, porém sempre que um arquivo é atualizado (salvo) no diretório `src`, o projeto é recompilado e a página aberta no navegador é atualizada, agilizando o desenvolvimento.
+<hr>
 
 ##### Observações
 - Em ambos os modos, a página ficará acessível através da URL `http://127.0.0.1:1337`
-- É possível apenas gerar os arquivos (sem iniciar um servidor http) com o comando `npm build`
+- Com o comando `npm build`, é possível apenas gerar os arquivos sem iniciar um servidor http
 
-
- ## Implementação
- 
  ## Funcionalidades
+
+ ## Detalhes implementação
+ 
+ 
+
