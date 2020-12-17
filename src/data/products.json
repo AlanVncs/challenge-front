@@ -40,6 +40,16 @@
                 "bestPrice": 706642,
                 "quantity": 1,
                 "image": "/images/products/note02-samsung-160-160.jpg"
+            },
+            {
+                "productId": 104,
+                "name": "Batata doce com jiló",
+                "salesChannel": "1",
+                "available": true,
+                "bestPriceFormated": "R$ 1,30",
+                "bestPrice": 130,
+                "quantity": 57,
+                "image": "/images/products/note01-samsung-160-160.jpg"
             }
         ]
     }
