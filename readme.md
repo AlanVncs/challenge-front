@@ -37,9 +37,11 @@ Similar ao modo de produção, porém sempre que um arquivo é atualizado (salvo
 <br><br>
 
 Obs.: Com o comando `npm build`, é possível apenas gerar os arquivos no diretório `dist/` sem iniciar um servidor HTTP.
+<br><br>
 
  ## Funcionalidades
  ...
+ <br><br>
  
  ## Detalhes implementação
  
