@@ -7,11 +7,6 @@ body {
     color: #1f1f1f;
 }
 
-.btn:hover {
-    cursor: pointer;
-    transform: scale(1.2);
-}
-
 @mixin noselect {
     -webkit-touch-callout: none;
       -webkit-user-select: none;
@@ -22,6 +17,7 @@ body {
 }
 
 #geral {
+
     & header {
         width: 1380px;
         margin: auto;
@@ -38,28 +34,72 @@ body {
             & img {
                 width: 94%;
             }
-            
         }
         
-        & nav{
+        & nav {
             position: relative;
             top: -19px;
             left: 21px;
             display: inline-block;
             margin-bottom: 40px;
+            
             & ul {
-                font-size: 0.895em;
+                padding: 0px;
                 list-style: none;
-                & li{
+                & li {
+                    position: relative;
+                    white-space: nowrap;
+                }
+                & > li:hover > ul {
+                    display: block;
+                }
+
+                & > li:hover > *{
+                    color: green;
+                }
+            }
+            
+
+            // Level 0 do menu
+            & > ul {
+                font-size: 0.895rem;
+                & > li{
                     display: inline-block;
-                    margin-right: 1.77em;
+                    & +li {
+                        margin-left: 2em;
+                    }
+
+                    & a {
+                        text-decoration: none;
+                        color: #1f1f1f;
+                    }
+
+                    // Level 1 do menu
+                    & > ul {
+                        padding-top: 30px;
+                        display: none;
+                        position: absolute;
+                        top: 100%;
+
+                        & li {
+                            padding: 5px 0px;
+                        }
+
+                        & ul {
+                            padding-left: 10px;
+                            display: none;
+                            position: absolute;
+                            top: 0px;
+                            left: 100%;
+                        }
+                    }
                 }
             }
         }
 
         & #header-btns {
             position: relative;
-            left: 135px;
+            right: -306px;
             bottom: 7px;
             display: inline-block;
 
