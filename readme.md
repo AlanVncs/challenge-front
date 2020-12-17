@@ -16,24 +16,28 @@ git clone https://github.com/AlanVncs/challenge-front.git
 cd challenge-front
 npm install -y
 ```
-O projeto possui duas formas de ser executado:
+
+Com o projeto baixado, será possível executá-lo de duas formas:
 - Modo de produção (Express)
 - Modo dev (BrowserSync)
 
 #### Modo de produção (Express)
-Neste modo, será criado um servidor http que escutará requisições na porta `1337`
 ```
 npm start
 ```
+Neste modo, será criado um servidor http que escutará requisições na porta `1337`
 
 #### Modo dev (BrowserSync)
-Neste modo sempre que um arquivo é atualizado (salvo) no diretório `src`, a página aberta no navegador é atualizada.
 ```
 npm run dev
 ```
+Neste modo, sempre que um arquivo é atualizado (salvo) no diretório `src`, a página aberta no navegador é atualizada, agilizando o desenvolvimento.
 
-Obs.:
-- Em ambos os modos, a página ficará acessível através da url `http://127.0.0.1:1337`
+##### Observações
+- Em ambos os modos, a página ficará acessível através da URL `http://127.0.0.1:1337`
 - É possível apenas gerar os arquivos (sem iniciar um servidor http) com o comando `npm build`
 
-### Funcionalidades e descrição da implementação
+
+ ## Implementação
+ 
+ ## Funcionalidades
