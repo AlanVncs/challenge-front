@@ -79,7 +79,7 @@ Além da sua facilidade de uso, o Express, diferente do BrowserSync, é um servi
 O Gulp executa a task `default`, que inicia o BrowserSync, compila e move os arquivos para o diretório `dist/`, além de entrar no modo "watch", que recompila o projeto e avisa o BrowserSync sempre alguma alteração for detectada.
 <br><br>
 
-##### Modo de produção
+##### Modo de execução
 > ```npm start```
 
 O Gulp executa a task `build`,  compila e move os arquivos para o diretório `dist/`.  Após isso, o Express é executado através do script `index.js`.
