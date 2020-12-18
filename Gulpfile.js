@@ -2,10 +2,11 @@ const gulp = require('gulp');
 const {src, dest, series, parallel, watch} = gulp;
 
 // Gulp plugins
-const clean  = require('gulp-clean');
-const sass   = require('gulp-sass');
-const rename = require('gulp-rename');
-const ts     = require('gulp-typescript');
+const clean       = require('gulp-clean');
+const sass        = require('gulp-sass');
+const rename      = require('gulp-rename');
+const ts          = require('gulp-typescript');
+const babelMinify = require('gulp-babel-minify');
 
 const browserSync = require('browser-sync').create();
 
@@ -34,6 +35,7 @@ gulp.task('sass', () => {
 gulp.task('typescript', () => {
     return src(TS_FILES)
     .pipe(ts({target: 'ES6'}))
+    .pipe(babelMinify({mangle: {topLevel: true}}))
     .pipe(dest(`${DIST_DIR}/js`))
 });
 
