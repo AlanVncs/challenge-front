@@ -1,4 +1,5 @@
 
+
 ![Eplus](https://www.agenciaeplus.com.br/wp-content/themes/eplus/images/agencia-eplus-n-logo.png)
 
 # E-Plus Frontend Challenge
@@ -39,11 +40,18 @@ Similar ao modo de produção, porém sempre que um arquivo é atualizado (salvo
 Obs.: Com o comando `npm build`, é possível apenas gerar os arquivos no diretório `dist/` sem iniciar um servidor HTTP.
 <br><br>
 
- ## Funcionalidades
- ...
+## Funcionalidades
+##### Carrinho de compras
+Ao clicar no ícone do carrinho de compras, um request é feito e o conteúdo do carrinho é exibido com todos os produtos presentes no arquivo `dist/data/products.json`. Ao clicar no ícone novamente ou clicar fora do carrinho, o conteúdo é escondido.
+Devido à minha limitação com o CSS, não consegui deixar a barra de rolagem parecida com o layout original.
+<br><br>
+
+##### Menu dropdown e dinâmico
+Assim com os ítens do carrinho, o conteúdo do menu também é obtido através de uma requisição a um JSON (`dist/data/menu.json`). O menu pode ter vários itens e vários submenus e seu conteúdo é exibido ao passar o mouse por cima.
  <br><br>
  
- ## Detalhes implementação
+ 
+## Detalhes implementação
  
 ### Tecnologias utilizadas
 
