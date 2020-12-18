@@ -4,8 +4,6 @@
 
 # E-Plus Frontend Challenge
 
-(Em construção)
-
 ## Pré-requisitos
 Embora a implementação do projeto conte com tecnologias como Gulp, Sass e Typescript, os únicos pré-requisitos são:
 - Node.js
