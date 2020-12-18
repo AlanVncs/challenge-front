@@ -35,7 +35,7 @@ Compila o projeto e inicia um servidor HTTP. A página fica disponível em `http
 Similar ao modo de produção, porém sempre que um arquivo é atualizado (salvo) no diretório `src/`, o projeto é recompilado e a página aberta no navegador é atualizada, agilizando o desenvolvimento.
 <br><br>
 
-Obs.: Com o comando `npm build`, é possível apenas gerar os arquivos no diretório `dist/` sem iniciar um servidor HTTP.
+Obs.: Com o comando `npm run build`, é possível apenas gerar os arquivos no diretório `dist/` sem iniciar um servidor HTTP.
 <br><br>
 
 ## Funcionalidades
