@@ -41,7 +41,7 @@ Obs.: Com o comando `npm build`, é possível apenas gerar os arquivos no diret�
 ## Funcionalidades
 ##### Carrinho de compras
 Ao clicar no ícone do carrinho de compras, um request é feito e o conteúdo do carrinho é exibido com todos os produtos presentes no arquivo `dist/data/products.json`. Ao clicar no ícone novamente ou clicar fora do carrinho, o conteúdo é escondido.
-Devido à minha limitação com o CSS, não consegui deixar a barra de rolagem parecida com o layout original.
+A barra de rolagem do carrinho não ficou parecida com o layout original :/
 <br><br>
 
 ##### Menu dropdown e dinâmico
@@ -69,7 +69,7 @@ O BrowserSync foi usado como servidor HTTP no modo de de desenvolvimento devido 
 Além da sua facilidade de uso, o Express, diferente do BrowserSync, é um servidor HTTP puro e por isso é mais adequado para ser usado no modo de produção.
 <br><br>
 
-### Fluxo de trabalho
+### Fluxo de execução
 
 ##### Modo de desenvolvimento
 > ```npm run dev```
@@ -82,3 +82,6 @@ O Gulp executa a task `default`, que inicia o BrowserSync, compila e move os arq
 
 O Gulp executa a task `build`,  compila e move os arquivos para o diretório `dist/`.  Após isso, o Express é executado através do script `index.js`.
 <br><br>
+
+### Considerações finais
+O maior desafio foi o CSS, principalmente no que diz respeito à reutilização do código e responsividade da página. Não sei (ainda!) como isso é feito no CSS mas certamente dá para melhorar bastante. De qualquer forma, tentei compensar meu défice em CSS integrando outras tecnologias ao projeto e espero que isso agregue valor.
