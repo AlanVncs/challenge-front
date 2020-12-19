@@ -72,7 +72,7 @@ Assim com os ítens do carrinho, o conteúdo do menu também é obtido através 
 
 ##### Minificação e sourcemaps
 Os arquivos Javascript e CSS são minificados pelo Gulp (na verdade, por seus plugins), o que aumenta significativamente a rapidez com que a página é carregada. Além disso, sourcemaps destes arquivos são gerados para facilitar uma eventual depuração via browser.
-Como é recomendado, os sourcemaps só ficam disponíveis quando o projeto é executado no modo de desenvolvimento.
+Como é recomendado, os sourcemaps só ficam disponíveis quando o projeto é executado no modo de desenvolvimento. <br>
 Obs.: A política de acesso aos sourcemaps pode ser facilmente modificada através do Express no arquivo `server.js`.
 <br><br>
   
@@ -86,7 +86,7 @@ Obs.: A política de acesso aos sourcemaps pode ser facilmente modificada atrav�
 
 ##### Gulp
 
-O Gulp foi usado para gerenciar todo o workflow do projeto, concentrando as operações de compilação, minificação, geração dos sourcemaps e iniciação do server HTTP. O seu sistema de tarefas (tasks) proporcionou uma maneira simples de executar ações conforme necessário, como rodar o projeto em modos diferentes com uma simples modificação de comando (ex.: "gulp prod" ou "gulp dev").
+O Gulp foi usado para gerenciar todo o workflow do projeto, concentrando as operações de compilação, minificação, geração dos sourcemaps e iniciação do server HTTP. O seu sistema de tarefas (tasks) proporcionou uma maneira simples de executar ações conforme necessário, como rodar o projeto em modos diferentes com uma simples modificação de comando (ex.: "gulp prod" ou "gulp dev"). <br>
 Plugins utilizados :`gulp-sass` `gulp-typescript` `gulp-babel-minify` `gulp-sourcemaps`
 <br><br>
 
@@ -119,7 +119,7 @@ Além da sua facilidade de uso, o Express, diferente do BrowserSync, é um servi
 >  ```npm run dev```
 
 Chama o Gulp no modo de desenvolvimento (`gulp dev`), que compila os arquivos no diretório `dist/` e inicia o BrowserSync.
-Simultaneamente, inicia o "watching" dos arquivos no diretório `src/`, fazendo com que sempre que haja alguma alteração neste diretório, os arquivos sejam recompilados/copiados para o diretório `dist/` e o BrowserSync seja notificado.
+Simultaneamente, inicia o "watching" dos arquivos no diretório `src/`, fazendo com que sempre que haja alguma alteração neste diretório, os arquivos sejam recompilados no diretório `dist/` e o BrowserSync seja notificado.
 <br><br>
 
   
