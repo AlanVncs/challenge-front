@@ -4,9 +4,10 @@
   "description": "![Eplus](https://www.agenciaeplus.com.br/wp-content/themes/eplus/images/agencia-eplus-n-logo.png)",
   "main": "index.js",
   "scripts": {
-    "dev": "./node_modules/gulp-cli/bin/gulp.js",
-    "start": "./node_modules/gulp-cli/bin/gulp.js build && node index.js",
-    "build": "./node_modules/gulp-cli/bin/gulp.js build"
+    "dev": "./node_modules/gulp-cli/bin/gulp.js dev",
+    "prod": "./node_modules/gulp-cli/bin/gulp.js prod -S",
+    "start": "npm run prod",
+    "build": "./node_modules/gulp-cli/bin/gulp.js clean build --series"
   },
   "repository": {
     "type": "git",
