@@ -71,8 +71,9 @@ gulp.task('startDevServer', () => {
 
 
 // Atualiza o BrowserSync
-gulp.task('reloadDevServer', () => {
+gulp.task('reloadDevServer', (cb) => {
     browserSync.reload();
+    cb();
 });
 
 
