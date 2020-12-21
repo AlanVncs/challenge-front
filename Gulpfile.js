@@ -60,12 +60,13 @@ gulp.task('build', parallel(['sass', 'typescript', 'copyOther']));
 
 
 // Inicia o BrowserSync
-gulp.task('startDevServer', async () => {
+gulp.task('startDevServer', () => {
     browserSync.init({
-        server: {baseDir: `${DIST_DIR}`},
-        port: SERVER_PORT
-    }, 
-    () => console.log('\n\x1b[32mServer online\x1b[0m')); // <green>Server online</green>    
+            server: {baseDir: `${DIST_DIR}`},
+            port: SERVER_PORT
+        },
+        () => console.log('\n\x1b[32mServer online\x1b[0m') // <green>Server online</green>
+    ); 
 });
 
 
