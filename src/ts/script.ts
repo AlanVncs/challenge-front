@@ -48,16 +48,16 @@ $cartContent.addEventListener('click', event => {
 // Retorna o estado do carrinho após a chamada: true => visível | false => escondido
 function toggleCartView(flag?: boolean){
     if(flag){
-        $cartContent.style.display = 'none';
+        $cartContent.style.left = "100%";
         return false;
     }
     else{
-        if(!$cartContent.style.display || $cartContent.style.display == 'none'){    
-            $cartContent.style.display = 'inline-block';
+        if(!$cartContent.style.left || $cartContent.style.left == "100%"){
+            $cartContent.style.left = "0%";
             return true;
         }
         else{
-            $cartContent.style.display = 'none';    
+            $cartContent.style.left = "100%";
             return false;
         }
     }

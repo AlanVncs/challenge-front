@@ -1,0 +1,99 @@
+div#header-btns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-grow: 1;
+    height: (1-$logo-ratio)*100%;
+    padding: 0 20%;
+
+    & .btn{
+        //
+    }
+
+    & #cart-content {
+        position: absolute;
+        left: 100%;
+        top: $header-height;
+        display: flex;
+        flex-direction: column;
+        transition: 0.6s;
+        width: 100%;
+        height: calc(100vh - #{$header-height});
+        border-top: 1px solid #f0f0f0;
+
+        & .cart-products {
+            height: 50%;
+            flex-grow: 1;
+            overflow-y: scroll;
+            background-color: #f2f2f2;
+
+            & .product {
+                display: flex;
+                padding: 10px;
+
+                & .product-img{
+                    width: 35%;
+                }
+
+                & .product-info{
+                    width: 65%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding: 10px;
+
+                    & .product-name{
+                        height: 30px;
+                        font-size: 0.75em;
+                        overflow: hidden;
+                    }
+
+                    & .product-status{
+                        display: flex;
+                        justify-content: space-between;
+                        font-size: 0.8em;
+
+                        & .product-price{
+                            font-weight: bold;
+                            color: rgba(24, 186, 46, 1);
+                        }
+                    }
+                }
+            }
+            
+            // Divisão entre os produtos
+            & div.hr-line {
+                height: 1px;
+                margin: 0 auto;
+                width: 95%;
+                background-color: #e0e0e0;
+            }
+        }
+
+        // Soma dos itens do carrinho
+        & .cart-sum {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 8%;
+            background-color: yellowgreen;
+            font-size: 0.9em;
+            & .value {
+                font-weight: bold;
+                color: #4f4f4f;
+            }
+        }
+
+        // Melhor botão do site
+        & .cart-buy-btn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 12%;
+            background-color: rgba(24, 186, 46, 1);
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+        }
+    }
+}
