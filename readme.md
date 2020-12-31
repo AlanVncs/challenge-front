@@ -6,6 +6,8 @@
 
 # E-Plus Frontend Challenge
 
+https://alanvncs.github.io/challenge-front/
+
 ## Pré-requisitos
 
 Embora a implementação do projeto conte com tecnologias como Gulp, Sass e Typescript, os únicos pré-requisitos são:
