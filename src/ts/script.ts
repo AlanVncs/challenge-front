@@ -15,6 +15,7 @@ const $cartSum       = <HTMLDivElement> document.getElementById('cart-sum');
 
 
 setMenuView();
+setCartView();
 
 
 
@@ -23,11 +24,12 @@ setMenuView();
 $cartImg.addEventListener('click', async event => {
     event.stopPropagation();
     $toggleMenu.checked = false;
-    if(toggleCartView()){
-        // TODO exibir animação de loading
-        const cart = await requestCartData();
-        setCartView(cart);
-    }
+    toggleCartView();
+    // if(){
+    //     // TODO exibir animação de loading
+    //     const cart = await requestCartData();
+    //     setCartView(cart);
+    // }
 });
 
 // Clicar na página (fora do carrinho), esconde o conteúdo
@@ -48,15 +50,12 @@ $cartContent.addEventListener('click', event => {
 
 // Alterna a visibilidade do conteúdo do carrinho
 // Necessariamente esconde se 'flag' for true
-// Retorna o estado do carrinho após a chamada: true => visível | false => escondido
 function toggleCartView(flag?: boolean){
     if(flag || $cartContent.classList.contains("visible")){
         $cartContent.classList.remove("visible");
-        return false;
     }
     else{
         $cartContent.classList.add("visible");
-        return true;
     }
 }
 
@@ -109,7 +108,8 @@ function createProductElement(product: Product): Element{
 }
 
 // Injeta as informações dos produtos na view
-function setCartView({cart}: Cart){
+async function setCartView(){
+    const {cart}:Cart = await requestCartData();
     $cartProducts.innerHTML = '';
     let sum = 0;
     cart.item.forEach(product => {
