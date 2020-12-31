@@ -4,10 +4,25 @@
     padding: 0px;
 }
 
+$sm-size:  426px;
+$md-size:  1001px;
+$lg-size: 1364px;
+
 
 #geral {
     overflow-x: hidden;
     @import './header/index';
-    $header-heightt: $header-height;
-    padding-top: $header-height + 30px;
+    padding-top: $header-height-mobile + 30px;
+    max-width: $lg-size;
+    margin: 0 auto;
+}
+
+@media only screen and (min-width: $lg-size) {
+    #geral {
+        min-height: 575px;
+        padding-top: 0;
+        section {
+            padding-top: 55px;
+        }
+    }
 }

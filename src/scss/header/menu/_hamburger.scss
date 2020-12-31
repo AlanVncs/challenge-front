@@ -5,7 +5,7 @@ $hamb-transition: 0.6s;
 
 div.hamburger {
     position: absolute;
-    top: $header-height*$logo-ratio/2 - $hamb-height*2;
+    top: $header-height-mobile*$logo-ratio/2 - $hamb-height*2;
     left: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -21,5 +21,11 @@ div.hamburger {
         height: $hamb-height;
         background-color: $font-color;
         border-radius: 3px;
+    }
+}
+
+@media only screen and (min-width: $md-size) {
+    div.hamburger {
+        display: none;
     }
 }

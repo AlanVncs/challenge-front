@@ -44,22 +44,17 @@ $cartContent.addEventListener('click', event => {
 
 
 
-// Alterna a visibilidade do conteúdo do carrinho ou apenas esconde se 'flag' for true
+// Alterna a visibilidade do conteúdo do carrinho
+// Necessariamente esconde se 'flag' for true
 // Retorna o estado do carrinho após a chamada: true => visível | false => escondido
 function toggleCartView(flag?: boolean){
-    if(flag){
-        $cartContent.style.left = "100%";
+    if(flag || $cartContent.classList.contains("visible")){
+        $cartContent.classList.remove("visible");
         return false;
     }
     else{
-        if(!$cartContent.style.left || $cartContent.style.left == "100%"){
-            $cartContent.style.left = "0%";
-            return true;
-        }
-        else{
-            $cartContent.style.left = "100%";
-            return false;
-        }
+        $cartContent.classList.add("visible");
+        return true;
     }
 }
 

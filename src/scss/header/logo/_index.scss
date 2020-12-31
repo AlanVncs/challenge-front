@@ -16,3 +16,17 @@ $logo-ratio: 0.7;
         }
     }
 }
+
+@media only screen and (min-width: $md-size) {
+    #header-logo {
+        width: 24%;
+        min-width: 200px;
+        height: 100%;
+    
+        & a {
+            width: 79%;
+            max-width: initial;
+            transform: translate(-2px, 1px);
+        }
+    }
+}
