@@ -44,6 +44,7 @@ gulp.task('typescript', () => {
     .pipe(sourcemaps.init())
     .pipe(ts({target: 'ES6'}))
     .pipe(babelMinify({mangle: {topLevel: true}}))
+    .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write('../js_map'))
     .pipe(dest(`${DIST_DIR}/js`))
 });
