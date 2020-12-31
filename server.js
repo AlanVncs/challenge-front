@@ -11,7 +11,7 @@ module.exports = {
         });
 
         // Com as restrições acima, torna a pasta './dist' pública
-        app.use('/', express.static('./dist'));
+        app.use('/', express.static('./docs'));
         
         app.listen(port, () => {
             // <green>Server online</green>
