@@ -15,7 +15,7 @@ const server = require('./server');                   // Modo de produção
 const SERVER_PORT = 1337;
 
 const SRC_DIR = './src'
-const DIST_DIR = './dist';
+const DIST_DIR = './docs';
 const SASS_FILES = `${SRC_DIR}/scss/**/*.scss`;
 const TS_FILES = `${SRC_DIR}/ts/**/*.ts`;
 const OTHER_FILES = [`${SRC_DIR}/**`, `!${SRC_DIR}/+(scss|ts)/**`];
