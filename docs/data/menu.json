@@ -1,83 +1,83 @@
 [
     {
         "name": "Home",
-        "url": "/",
+        "url": "./",
         "children": []
     },
     {
         "name": "Produtos",
-        "url": "/product",
+        "url": "./product",
         "children": [
             {
                 "name": "Impressoras",
-                "url": "/product/printer",
+                "url": "./product/printer",
                 "children": [
                     {
                         "name": "HP",
-                        "url": "/product/printer/hp",
+                        "url": "./product/printer/hp",
                         "children": []
                     },
                     {
                         "name": "Epson",
-                        "url": "/product/printer/epson",
+                        "url": "./product/printer/epson",
                         "children": [
                             {
                                 "name": "Deskjet 150",
-                                "url": "/product/printer/epson/deskjet-150",
+                                "url": "./product/printer/epson/deskjet-150",
                                 "children": []
                             },
                             {
                                 "name": "Deskjet 666",
-                                "url": "/product/printer/epson/deskjet-666",
+                                "url": "./product/printer/epson/deskjet-666",
                                 "children": []
                             }
                         ]
                     },
                     {
                         "name": "Xerox",
-                        "url": "/product/printer/xerox",
+                        "url": "./product/printer/xerox",
                         "children": []
                     },
                     {
                         "name": "Lexmark",
-                        "url": "/product/printer/lexmark",
+                        "url": "./product/printer/lexmark",
                         "children": []
                     }
                 ]
             },
             {
                 "name": "Notebooks",
-                "url": "/product/notebook",
+                "url": "./product/notebook",
                 "children": [
                     {
                         "name": "Dell",
-                        "url": "/product/notebook/dell",
+                        "url": "./product/notebook/dell",
                         "children": []
                     },
                     {
                         "name": "Samsung",
-                        "url": "/product/notebook/samsung",
+                        "url": "./product/notebook/samsung",
                         "children": []
                     },
                     {
                         "name": "Acer",
-                        "url": "/product/notebook/acer",
+                        "url": "./product/notebook/acer",
                         "children": []
                     }
                 ]
             },
             {
                 "name": "Celulares",
-                "url": "/product/phone",
+                "url": "./product/phone",
                 "children": [
                     {
                         "name": "Samsung",
-                        "url": "/product/phone/samsung",
+                        "url": "./product/phone/samsung",
                         "children": []
                     },
                     {
                         "name": "iPhone",
-                        "url": "/product/phone/iphone",
+                        "url": "./product/phone/iphone",
                         "children": []
                     }
                 ]
@@ -86,33 +86,33 @@
     },
     {
         "name": "Promoções",
-        "url": "/sale",
+        "url": "./sale",
         "children": []
     },
     {
         "name": "Novidades",
-        "url": "/news",
+        "url": "./news",
         "children": [
             {
                 "name": "Novidade 1",
-                "url": "/news/1",
+                "url": "./news/1",
                 "children": []
             },
             {
                 "name": "Novidade 2",
-                "url": "/news/2",
+                "url": "./news/2",
                 "children": []
             },
             {
                 "name": "Novidade 3",
-                "url": "/news/3",
+                "url": "./news/3",
                 "children": []
             }
         ]
     },
     {
         "name": "Contato",
-        "url": "/contact",
+        "url": "./contact",
         "children": []
     }
 ]
