@@ -6,11 +6,12 @@ interface Cart {cart: Items};
 
 
 // Elements
-const $menuContainer = document.getElementById('menu-container');
-const $cartImg = document.getElementById('cart');
-const $cartContent = document.getElementById('cart-content');
-const $cartProducts = document.getElementById('cart-products');
-const $cartSum = document.getElementById('cart-sum');
+const $toggleMenu    = <HTMLInputElement> document.getElementById("toggle-menu");
+const $menuContainer = <HTMLDivElement> document.getElementById('menu-container');
+const $cartImg       = <HTMLImageElement> document.getElementById('cart');
+const $cartContent   = <HTMLDivElement> document.getElementById('cart-content');
+const $cartProducts  = <HTMLDivElement> document.getElementById('cart-products');
+const $cartSum       = <HTMLDivElement> document.getElementById('cart-sum');
 
 
 setMenuView();
@@ -21,6 +22,7 @@ setMenuView();
 // esconde o carrinho se já estiver sendo exibido
 $cartImg.addEventListener('click', async event => {
     event.stopPropagation();
+    $toggleMenu.checked = false;
     if(toggleCartView()){
         // TODO exibir animação de loading
         const cart = await requestCartData();
