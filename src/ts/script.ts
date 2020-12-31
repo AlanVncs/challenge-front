@@ -6,14 +6,16 @@ interface Cart {cart: Items};
 
 
 // Elements
-const $menuContainer = document.getElementById('menu-container');
-const $cartImg = document.getElementById('cart');
-const $cartContent = document.getElementById('cart-content');
-const $cartProducts = document.getElementById('cart-products');
-const $cartSum = document.getElementById('cart-sum');
+const $toggleMenu    = <HTMLInputElement> document.getElementById("toggle-menu");
+const $menuContainer = <HTMLDivElement> document.getElementById('menu-container');
+const $cartImg       = <HTMLImageElement> document.getElementById('cart');
+const $cartContent   = <HTMLDivElement> document.getElementById('cart-content');
+const $cartProducts  = <HTMLDivElement> document.getElementById('cart-products');
+const $cartSum       = <HTMLDivElement> document.getElementById('cart-sum');
 
 
 setMenuView();
+setCartView();
 
 
 
@@ -21,11 +23,13 @@ setMenuView();
 // esconde o carrinho se já estiver sendo exibido
 $cartImg.addEventListener('click', async event => {
     event.stopPropagation();
-    if(toggleCartView()){
-        // TODO exibir animação de loading
-        const cart = await requestCartData();
-        setCartView(cart);
-    }
+    $toggleMenu.checked = false;
+    toggleCartView();
+    // if(){
+    //     // TODO exibir animação de loading
+    //     const cart = await requestCartData();
+    //     setCartView(cart);
+    // }
 });
 
 // Clicar na página (fora do carrinho), esconde o conteúdo
@@ -44,22 +48,14 @@ $cartContent.addEventListener('click', event => {
 
 
 
-// Alterna a visibilidade do conteúdo do carrinho ou apenas esconde se 'flag' for true
-// Retorna o estado do carrinho após a chamada: true => visível | false => escondido
+// Alterna a visibilidade do conteúdo do carrinho
+// Necessariamente esconde se 'flag' for true
 function toggleCartView(flag?: boolean){
-    if(flag){
-        $cartContent.style.display = 'none';
-        return false;
+    if(flag || $cartContent.classList.contains("visible")){
+        $cartContent.classList.remove("visible");
     }
     else{
-        if(!$cartContent.style.display || $cartContent.style.display == 'none'){    
-            $cartContent.style.display = 'inline-block';
-            return true;
-        }
-        else{
-            $cartContent.style.display = 'none';    
-            return false;
-        }
+        $cartContent.classList.add("visible");
     }
 }
 
@@ -112,7 +108,8 @@ function createProductElement(product: Product): Element{
 }
 
 // Injeta as informações dos produtos na view
-function setCartView({cart}: Cart){
+async function setCartView(){
+    const {cart}:Cart = await requestCartData();
     $cartProducts.innerHTML = '';
     let sum = 0;
     cart.item.forEach(product => {

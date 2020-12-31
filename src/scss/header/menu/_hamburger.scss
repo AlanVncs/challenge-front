@@ -1,0 +1,31 @@
+$hamb-width: 25px;
+$hamb-height: 6px;
+$hamb-space: 1px;
+$hamb-transition: 0.6s;
+
+div.hamburger {
+    position: absolute;
+    top: $header-height-mobile*$logo-ratio/2 - $hamb-height*2;
+    left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-between;
+    height: 3*$hamb-height + 2*$hamb-space;
+    width: $hamb-width;
+    cursor: pointer;
+
+    & div {
+        transition: $hamb-transition;
+        width: 100%;
+        height: $hamb-height;
+        background-color: $font-color;
+        border-radius: 3px;
+    }
+}
+
+@media only screen and (min-width: $md-size) {
+    div.hamburger {
+        display: none;
+    }
+}

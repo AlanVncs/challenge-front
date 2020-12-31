@@ -1,0 +1,32 @@
+$logo-ratio: 0.7;
+
+#header-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $logo-ratio*100%;
+    width: 100%;
+
+    & a {
+        display: flex;
+        width: 50%;
+        max-width: 250px;
+        & img {
+            width: 100%;
+        }
+    }
+}
+
+@media only screen and (min-width: $md-size) {
+    #header-logo {
+        width: 24%;
+        min-width: 200px;
+        height: 100%;
+    
+        & a {
+            width: 79%;
+            max-width: initial;
+            transform: translate(-2px, 1px);
+        }
+    }
+}
