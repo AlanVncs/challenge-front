@@ -51,7 +51,7 @@ Similar ao modo de produção, porém sempre que um arquivo é atualizado (salvo
 <br><br>
 
 
-Obs.: Com o comando `npm run build`, é possível apenas gerar os arquivos no diretório `dist/` sem iniciar um servidor HTTP.
+Obs.: Com o comando `npm run build`, é possível apenas gerar os arquivos no diretório `docs/` sem iniciar um servidor HTTP.
 <br><br>
 
   
@@ -60,14 +60,13 @@ Obs.: Com o comando `npm run build`, é possível apenas gerar os arquivos no di
 
 ##### Carrinho de compras
 
-Ao clicar no ícone do carrinho de compras, um request é feito e o conteúdo do carrinho é exibido com todos os produtos presentes no arquivo `dist/data/products.json`. Ao clicar no ícone novamente ou clicar fora do carrinho, o conteúdo é escondido.
-A barra de rolagem do carrinho não ficou parecida com o layout original :/
+No início do carregamento da página, um request é feito e o conteúdo do arquivo `docs/data/products.json` preenche as informações do carrinho. Ao clicar no ícone, o conteúdo do carrinho é exibido. Clicando novamente no ícone ou fora do carrinho, o conteúdo é escondido.
 <br><br>
 
   
 
 ##### Menu dropdown e dinâmico
-Assim com os ítens do carrinho, o conteúdo do menu também é obtido através de uma requisição a um JSON (`dist/data/menu.json`). O menu pode ter vários itens e vários submenus e seu conteúdo é exibido ao passar o mouse por cima.
+Assim com os ítens do carrinho, o conteúdo do menu também é obtido através de uma requisição a um JSON (`docs/data/menu.json`). O menu pode ter vários itens e vários submenus e seu conteúdo é exibido ao passar o mouse por cima. Em tamanhos pequenos de tela (mobile), o menu é escondido e fica acessível através do hamburger icon no canto superior esquerdo.
 <br><br>
 
 
@@ -120,8 +119,8 @@ Além da sua facilidade de uso, o Express, diferente do BrowserSync, é um servi
 ##### Modo de desenvolvimento
 >  ```npm run dev```
 
-Chama o Gulp no modo de desenvolvimento (`gulp dev`), que compila os arquivos no diretório `dist/` e inicia o BrowserSync.
-Simultaneamente, inicia o "watching" dos arquivos no diretório `src/`, fazendo com que sempre que haja alguma alteração neste diretório, os arquivos sejam recompilados no diretório `dist/` e o BrowserSync seja notificado.
+Chama o Gulp no modo de desenvolvimento (`gulp dev`), que compila os arquivos no diretório `docs/` e inicia o BrowserSync.
+Simultaneamente, inicia o "watching" dos arquivos no diretório `src/`, fazendo com que sempre que haja alguma alteração neste diretório, os arquivos sejam recompilados no diretório `docs/` e o BrowserSync seja notificado.
 <br><br>
 
   
@@ -129,11 +128,16 @@ Simultaneamente, inicia o "watching" dos arquivos no diretório `src/`, fazendo 
 ##### Modo de execução
 >  ```npm start```
 
-Chama o Gulp no modo de produção (`gulp prod`), que compila os arquivos no diretório `dist/` e inicia o Express (`server.js`).
+Chama o Gulp no modo de produção (`gulp prod`), que compila os arquivos no diretório `docs/` e inicia o Express (`server.js`).
 <br><br>
 
   
 
 ### Considerações finais
 
+##### 1.0
 O maior desafio foi o CSS, principalmente no que diz respeito à reutilização do código e responsividade da página. Não sei (ainda!) como isso é feito no CSS mas certamente dá para melhorar bastante. De qualquer forma, tentei compensar meu défice em CSS integrando outras tecnologias ao projeto e espero que isso agregue valor.
+
+##### 2.0
+Com um entendimento melhor do CSS e, principalmente, do SASS, foi possível responsivar a página e melhorar a modularização/organização do código.
+Dessa vez o desafio foi a escolha de layout em partes que não haviam sido definidas pelo enunciado, como por exemplo em resoluções mobile.
